@@ -1,0 +1,31 @@
+{
+  "name": "lit-webcomponent-demo",
+  "private": false,
+  "version": "0.1.1",
+  "type": "module",
+  "main": "dist/lit-webcomponent-demo.js",
+  "exports": {
+    ".": "./dist/lit-webcomponent-demo.js"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "test": "karma start"
+  },
+  "author": "kadirjailani",
+  "license": "ISC",
+  "dependencies": {
+    "fa-icons": "^0.2.0",
+    "lit": "^2.6.1"
+  },
+  "devDependencies": {
+    "@open-wc/testing": "^3.0.0-next.5",
+    "karma": "^6.4.1",
+    "sass": "^1.59.3",
+    "typescript": "^4.9.3",
+    "vite": "^4.2.0"
+  }
+}

@@ -1,9 +1,9 @@
-name: "Publish"
+name: Publish it to NPMJS
 
 on: 
   push: 
-  branches:
-    - master
+    branches:
+      - master
 
 jobs:
   release:

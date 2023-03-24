@@ -1,4 +1,4 @@
-name: Publish this Package to npmjs too
+name: 📦 Publish this Package to npmjs too
 on:
     push: 
       branches:

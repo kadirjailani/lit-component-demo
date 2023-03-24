@@ -1,4 +1,4 @@
-#   <h1>Lit Web Component Demo!.</h1>  ## 
+#   <h1>Lit Web Component Demo! 🔥</h1>  ## 
 
 Hello all!
 
@@ -11,6 +11,8 @@ unless you are the guy that should be checking it.
 1. First of all, please run ```npm i``` to install all dependencies needed for run this app in your local machine. !important: Please make sure you are targeting to this project's folder in terminal.
 2. Once done, you can run dev/localhost to check it out by running ```npm run dev```.
 3. Voila, click on the url given/appear on your terminal. you can now play around with with.
+4. Last one would be ```npm run test```, to run unit testing, but i still checking out about this unit test framework.
 
 # ##
 this web component has been publish at https://www.npmjs.com/package/lit-webcomponent-demo?activeTab=code
+written with LitJS, ViteJS(dev-server), Open Web Component(unit testing with test-runner-playwright) & publish on NPMJS

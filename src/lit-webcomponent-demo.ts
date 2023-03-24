@@ -4,86 +4,83 @@ import 'fa-icons';
 
 @customElement('super-search')
 export class SuperSearch extends LitElement {
-
   // Declare properties
   @property({ type: String })
-  labelValue = "";
+  labelValue = '';
 
   @property({ type: String })
-  inputValue = "";
+  inputValue = '';
 
   @property({ type: String })
-  searchDisplayValue = "";
+  searchDisplayValue = '';
 
   @property({ type: Array })
-  searchResult : string[] = [];
+  searchResult: string[] = [];
 
   private clickHandler(e: Event) {
-    e.preventDefault()
+    e.preventDefault();
     this.searchDisplayValue = this.inputValue;
     this.searchResult.push(this.inputValue);
-    
+
     // reset value
-    this.inputValue = "";
-    this.labelValue = "";
+    this.inputValue = '';
+    this.labelValue = '';
   }
 
-  private async clearResult(){ 
+  private async clearResult() {
     this.searchResult = [];
     await this.updateComplete;
   }
 
   private updateSuperInputValue(e: Event) {
     this.inputValue = (e.target as HTMLButtonElement).value;
-    this.labelValue = this.inputValue.length > 3 ? "You can search anything here" : " ";
+    this.labelValue =
+      this.inputValue.length > 3 ? 'You can search anything here' : ' ';
   }
 
   render() {
     return html`
       <form class="super-search">
-
-        <label for="super" class="super-label">
-          ${ this.labelValue }
-        </label>
+        <label for="super" class="super-label"> ${this.labelValue} </label>
 
         <div class="input-wrapper">
-        <input 
-          name="super" 
-          type="text"
-          placeholder="Search"
-          class="super-input"
-          .value=${ this.inputValue }
-          @input=${(e: Event) => this.updateSuperInputValue(e)}
-         />
+          <input
+            name="super"
+            type="text"
+            placeholder="Search"
+            class="super-input"
+            .value=${this.inputValue}
+            @input=${(e: Event) => this.updateSuperInputValue(e)}
+          />
 
-        <button 
-          class="super-btn" 
-          @click=${ this.clickHandler }
-          ?disabled=${ !this.labelValue } 
-        >
-          <fa-icon class="fas fa-search" color="#000" size="14px"></fa-icon>
-        </button>
+          <button
+            class="super-btn"
+            aria-label="Search"
+            @click=${this.clickHandler}
+            ?disabled=${!this.labelValue}
+          >
+            <fa-icon class="fas fa-search" color="#000" size="14px"></fa-icon>
+          </button>
         </div>
       </form>
 
-      ${ this.searchResult.length > 0 ?
-        html`
-        <div class="search-result-header">
-          <h4 class="title">Search history</h4>
-          <button class="clear-button" @click=${ this.clearResult }>Clear</button>
-        </div>`
-        :
-        html``}
+      ${this.searchResult.length > 0
+        ? html` <div class="search-result-header">
+            <h4 class="title">Search history</h4>
+            <button
+              class="clear-button"
+              aria-label="Clear"
+              @click=${this.clearResult}
+            >
+              Clear
+            </button>
+          </div>`
+        : html``}
 
-      
       <ul class="search-result">
-          ${
-            this.searchResult.map((result: String) => html`
-              <li>${ result }</li>
-            `
-          )}
+        ${this.searchResult.map((result: String) => html` <li>${result}</li> `)}
       </ul>
-    `
+    `;
   }
 
   static styles = css`
@@ -94,7 +91,7 @@ export class SuperSearch extends LitElement {
     }
 
     .super-search {
-      display:block;
+      display: block;
       padding: 0 25px;
     }
 
@@ -159,11 +156,11 @@ export class SuperSearch extends LitElement {
     .search-result {
       padding: 0 0 0 45px;
     }
-  `
+  `;
 }
 
 declare global {
   interface HTMLElementTagNameMap {
-    'super-search': SuperSearch
+    'super-search': SuperSearch;
   }
 }
